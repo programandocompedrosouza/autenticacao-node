@@ -1,13 +1,11 @@
 import { Router } from "express";
-
+import { renderLogin, renderSignup, signup } from "../controllers/authController";
 const router = Router();
 
-router.get('/entrar', (req, res) => {
-  res.render('login');
-});
+router.get('/entrar', renderLogin);
+router.get('/cadastro', renderSignup);
 
-router.get('/cadastro', (req, res) => {
-  res.render('signup');
-});
+// rotas de ação
+router.post('/cadastro', signup);
 
 export default router;
